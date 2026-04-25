@@ -1,0 +1,152 @@
+.result {
+  animation: fadeUp 0.35s ease;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Badge ────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--success-bg);
+  color: var(--success);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 16px;
+}
+
+/* ── UAVT Kod Kutusu ──────────────────────────────────── */
+.codeBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(135deg, var(--primary-x-light), #ededfa);
+  border: 1px solid rgba(0, 0, 128, 0.14);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.codeLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.codeLabel {
+  font-size: 0.72rem;
+  color: var(--subtext);
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  font-weight: 600;
+}
+
+.codeValue {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 2.5px;
+  font-variant-numeric: tabular-nums;
+  word-break: break-all;
+}
+
+/* Kopyala — transparant, border yok */
+.btnCopy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  font-family: inherit;
+  font-size: 0.83rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+
+.btnCopy:hover {
+  background: rgba(0, 0, 128, 0.07);
+}
+
+.btnCopy.copied {
+  color: var(--success);
+}
+
+/* ── Adres Detayı ─────────────────────────────────────── */
+.adresDetail {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  margin-bottom: 14px;
+}
+
+.detailLabel {
+  font-size: 0.72rem;
+  color: var(--subtext);
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.adresText {
+  font-size: 0.97rem;
+  color: var(--black);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.binaCode {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.83rem;
+  color: var(--subtext);
+  margin-top: 10px;
+}
+
+.binaCode strong {
+  color: var(--primary);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Tekrar Sorgula ───────────────────────────────────── */
+.btnRequery {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 26px;
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.btnRequery:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-1px);
+}

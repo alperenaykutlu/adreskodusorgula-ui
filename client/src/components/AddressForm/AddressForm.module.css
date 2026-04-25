@@ -1,0 +1,84 @@
+.formWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+/* ── Sorgula Butonu ───────────────────────────────────── */
+.btnQuery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+  background: var(--primary);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 16px rgba(0, 0, 128, 0.28);
+  letter-spacing: 0.3px;
+  margin-top: 4px;
+}
+
+.btnQuery:hover:not(:disabled) {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 128, 0.38);
+}
+
+.btnQuery:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btnQuery:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.btnQuery svg {
+  transition: transform var(--transition);
+}
+
+.btnQuery:hover:not(:disabled) svg {
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* Loading spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,212 @@
+.wrap {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Input (Select) ───────────────────────────────────── */
+.select {
+  width: 100%;
+  height: 58px;
+  padding: 20px 40px 6px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--black);
+  background: var(--white);
+  cursor: text;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 0, 128, 0.1);
+}
+
+/* States */
+.isDisabled .select {
+  background: #f3f3f8;
+  cursor: not-allowed;
+  color: #a0a0ab;
+  border-color: #e0e0e8;
+}
+
+.hasError .select {
+  border-color: var(--error);
+  background: var(--error-bg);
+}
+
+/* ── Floating Label ───────────────────────────────────── */
+.label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 0.88rem;
+  color: var(--subtext);
+  pointer-events: none;
+  transition: all var(--transition);
+  transform-origin: left center;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: calc(100% - 50px);
+  text-overflow: ellipsis;
+}
+
+/* Label floats up when value selected or input focused */
+.hasValue .label,
+.select:focus + .label {
+  top: 11px;
+  transform: translateY(0) scale(0.78);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.isDisabled .label {
+  color: #a0a0ab;
+}
+
+.hasError .label {
+  color: var(--error);
+}
+
+/* ── Arrow ────────────────────────────────────────────── */
+.arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--subtext);
+  display: flex;
+  align-items: center;
+  transition: transform var(--transition), color var(--transition);
+  padding: 4px;
+}
+
+.arrowOpen {
+  transform: translateY(-50%) rotate(180deg);
+  color: var(--primary);
+}
+
+.isDisabled .arrow {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ── Dropdown Menu ───────────────────────────────────── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  max-height: 260px;
+  overflow-y: auto;
+
+  /* Premium dış görünüm */
+  background: #fff;
+  border-radius: 12px;
+  border: 1.5px solid rgba(0, 0, 128, 0.18);
+  box-shadow:
+    0 0 0 4px rgba(0, 0, 128, 0.06),  /* yumuşak hale */
+    0 8px 28px rgba(0, 0, 128, 0.14), /* derin gölge */
+    0 2px 6px  rgba(0, 0, 0, 0.06);   /* hafif çevresel */
+
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  z-index: 200;
+  animation: slideDrop 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Özel scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,128,.25) transparent;
+}
+
+.dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+.dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dropdown::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 128, .22);
+  border-radius: 10px;
+}
+
+@keyframes slideDrop {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* ── Dropdown Items ────────────────────────────── */
+.dropdownItem {
+  position: relative;
+  padding: 10px 14px 10px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--black);
+  cursor: pointer;
+  border-radius: 8px;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    padding-left 0.15s ease;
+
+  /* Sol vurgu çizgisi — hover'da belirir */
+  border-left: 2.5px solid transparent;
+}
+
+.dropdownItem:hover {
+  background: var(--primary-x-light);
+  color: var(--primary);
+  border-left-color: var(--primary);
+  padding-left: 20px;
+}
+
+/* Seçili item — kalın, renkli arka plan */
+.selectedItem {
+  background: linear-gradient(90deg, rgba(0,0,128,.10), rgba(0,0,128,.04)) !important;
+  color: var(--primary) !important;
+  font-weight: 700 !important;
+  border-left-color: var(--primary) !important;
+  padding-left: 20px !important;
+}
+
+.selectedItem::after {
+  content: '✓';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 900;
+}
+
+/* Boş sonuç */
+.dropdownEmpty {
+  padding: 16px 14px;
+  font-size: 0.84rem;
+  color: var(--subtext);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ── Error message ────────────────────────────────────── */
+.errorMsg {
+  display: block;
+  margin-top: 4px;
+  padding-left: 2px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--error);
+  animation: slideDownMsg 0.2s ease;
+}
+
+@keyframes slideDownMsg {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

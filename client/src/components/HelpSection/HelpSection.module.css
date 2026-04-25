@@ -1,0 +1,230 @@
+.section {
+  margin-bottom: 80px;
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 0.93rem;
+  color: var(--subtext);
+  line-height: 1.7;
+}
+
+.subtitle strong {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+/* ── Cards Grid ───────────────────────────────────────── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* ── Single Card ──────────────────────────────────────── */
+.card {
+  /* CSS vars dari HelpCard — her kart farklı renk alır */
+  background: var(--white);
+  border: 1.5px solid var(--card-border, var(--border));
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+  transition:
+    box-shadow var(--transition),
+    transform  var(--transition),
+    border-color var(--transition);
+}
+
+.card:hover {
+  box-shadow: 0 8px 28px var(--card-glow, rgba(0,0,128,.12));
+  transform: translateY(-4px);
+  border-color: var(--icon-color, var(--primary));
+}
+
+/* Üst renkli şerit */
+.cardStripe {
+  height: 4px;
+  width: 100%;
+  opacity: 0.85;
+  transition: opacity var(--transition);
+}
+
+.card:hover .cardStripe {
+  opacity: 1;
+}
+
+/* ── İkon Kutusu ──────────────────────────────────────── */
+.cardIcon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--icon-bg, var(--primary-x-light));
+  color: var(--icon-color, var(--primary));
+  margin: 22px 22px 14px;
+  flex-shrink: 0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover .cardIcon {
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 0 4px 14px var(--card-glow, rgba(0,0,128,.15));
+}
+
+/* ── İçerik ───────────────────────────────────────────── */
+.cardContent {
+  padding: 0 22px;
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.cardDesc {
+  font-size: 0.83rem;
+  color: var(--subtext);
+  line-height: 1.7;
+}
+
+/* ── Görüntüle Linki ──────────────────────────────────── */
+.btnView {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+  font-size: 0.83rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 16px 22px 20px;
+  transition: gap var(--transition);
+  /* color: gelir prop'tan via style */
+}
+
+.btnView:hover {
+  gap: 12px;
+}
+
+.arrow {
+  transition: transform var(--transition);
+}
+
+.btnView:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* ── Niçin Bizi Tercih Etmelisiniz Başlığı ────────────── */
+.reasonsTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--black);
+  margin: 0 0 20px;
+}
+
+.reasonsTitleIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: var(--primary-x-light);
+  color: var(--black);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* ── Tercih Sebepleri Kart Grid (5 yan yana) ──────────── */
+.reasonsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.reasonCard {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 22px 30px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+.reasonCard:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(0, 163, 108, 0.10);
+  transform: translateY(-3px);
+}
+
+.reasonIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--primary-x-light);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reasonCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.reasonCardText {
+  font-size: 0.88rem;
+  color: var(--subtext);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .reasonsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .reasonsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .reasonsGrid {
+    grid-template-columns: 1fr;
+  }
+}

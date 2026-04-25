@@ -1,0 +1,115 @@
+/* ============================================================
+   GLOBAL STYLES & CSS DESIGN TOKENS
+   adreskodusorgula.com.tr
+   Tüm CSS değişkenleri buradan alınır.
+   Renk sabitler: client/src/constants/colors.js (JS tarafı için)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── CSS Custom Properties (Design Tokens) ─────────────── */
+:root {
+  /* === Renk Sistemi === */
+  /* Ana Marka */
+  --primary:          #00A36C;
+  --primary-light:   #3B9C9C;
+  --primary-x-light:  #e8e8f5;
+  --primary-dark:     #238162;
+
+  /* Aksanlar */
+  --accent-green:       #24D330;   /* Canlı yeşil */
+  --accent-service:     #e67e00;   /* Turuncu — servis kartı */
+  --accent-institution: #24D330;   /* Yeşil — kurum kartı */
+
+  /* Nötr */
+  --white:            #ffffff;
+  --black:            #000000;
+  --subtext:          #908f8f;
+
+  /* Borders */
+  --border:           #d9d9e3;
+  --border-focus:     #5050e4;
+
+  /* Durum */
+  --error:            #e53e3e;
+  --error-bg:         #fff5f5;
+  --success:          #38a169;
+  --success-bg:       #e8f5e9;
+
+  /* Arka Planlar */
+  --bg-page:          #f5f6fa;
+  --card-bg:          #ffffff;
+
+  /* === Gölgeler === */
+  --shadow-sm:  0 1px 4px rgba(0,0,128,.10);
+  --shadow-md:  0 4px 18px rgba(0,0,128,.13);
+  --shadow-lg:  0 12px 40px rgba(0,0,128,.18);
+
+  /* === Border Radius === */
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-full: 9999px;
+
+  /* === Geçişler === */
+  --transition:  .18s cubic-bezier(.4,0,.2,1);
+  --transition-slow: .35s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-page);
+  color: var(--black);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Form alanları ve kod kutuları seçilebilir kalır */
+input, textarea, select, [contenteditable="true"],
+#uavt-code-display, #result-bina-code {
+  user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+}
+
+/* ── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--bg-page); }
+::-webkit-scrollbar-thumb  { background: var(--primary); border-radius: 99px; }
+
+/* ── Elemanlar ────────────────────────────────────────── */
+img, video { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+button { font-family: inherit; }
+
+/* ── App Shell ────────────────────────────────────────── */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-shell > main,
+.app-shell > section {
+  flex: 1;
+}

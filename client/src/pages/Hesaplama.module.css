@@ -1,0 +1,13 @@
+/* ════════════════════════════════════════════════════════════
+   Muhasebe sayfası — full viewport yeşil tonlu zemin
+   ════════════════════════════════════════════════════════════ */
+.pageWrap {
+  background: linear-gradient(180deg, rgba(0, 163, 108, 0.18) 0%, rgba(0, 163, 108, 0.06) 100%);
+  min-height: calc(100vh - 60px);
+}
+
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
